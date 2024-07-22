@@ -58,7 +58,7 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<OrderS
         return new StateMachineListenerAdapter<>() {
             @Override
             public void transition(Transition<OrderState, OrderEvent> transition) {
-                if (transition.getTarget().getId() != null)
+                if (transition.getTarget().getId() != null && transition.getSource() != null)
                     System.out.println("Transtioning from " + transition.getSource().getId() + " to " + transition.getTarget().getId());
             }
         };
